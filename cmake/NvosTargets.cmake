@@ -1,0 +1,17 @@
+function(nvos_add_library name)
+  cmake_parse_arguments(ARG "" "" "SOURCES;DEPS" ${ARGN})
+  add_library(nvos_${name} STATIC ${ARG_SOURCES})
+  add_library(nvos::${name} ALIAS nvos_${name})
+  target_include_directories(nvos_${name} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
+  target_link_libraries(nvos_${name} PUBLIC ${ARG_DEPS})
+  nvos_set_warnings(nvos_${name})
+endfunction()
+
+function(nvos_add_test name)
+  cmake_parse_arguments(ARG "" "" "SOURCES;DEPS" ${ARGN})
+  add_executable(${name} ${ARG_SOURCES})
+  target_link_libraries(${name} PRIVATE ${ARG_DEPS} Catch2::Catch2WithMain)
+  nvos_set_warnings(${name})
+  add_test(NAME ${name} COMMAND ${name})
+endfunction()
