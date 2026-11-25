@@ -1,0 +1,17 @@
+[package]
+name    = "nvos-kernel"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+nvos-core = { path = "../nvos-core" }
+nvos-cpu  = { path = "../nvos-cpu" }
+nvos-mem  = { path = "../nvos-mem" }
+slotmap   = { workspace = true }
+tokio     = { workspace = true }
+rand_chacha = { workspace = true }
+rand      = { workspace = true }
+
+[dev-dependencies]

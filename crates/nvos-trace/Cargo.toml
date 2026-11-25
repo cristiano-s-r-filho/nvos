@@ -1,0 +1,13 @@
+[package]
+name    = "nvos-trace"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+nvos-core  = { path = "../nvos-core", features = ["serde"] }
+serde      = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]

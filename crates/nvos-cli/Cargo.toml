@@ -1,0 +1,22 @@
+[package]
+name    = "nvos-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "nvos"
+path = "src/main.rs"
+
+[dependencies]
+nvos-core     = { path = "../nvos-core" }
+nvos-kernel   = { path = "../nvos-kernel" }
+nvos-scenario = { path = "../nvos-scenario" }
+nvos-tui      = { path = "../nvos-tui" }
+nvos-web      = { path = "../nvos-web" }
+nvos-trace    = { path = "../nvos-trace" }
+clap          = { workspace = true }
+tokio         = { workspace = true }
+
+[dev-dependencies]
