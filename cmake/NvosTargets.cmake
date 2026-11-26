@@ -1,3 +1,4 @@
+include(Catch)
 function(nvos_add_library name)
   cmake_parse_arguments(ARG "" "" "SOURCES;DEPS" ${ARGN})
   add_library(nvos_${name} STATIC ${ARG_SOURCES})
